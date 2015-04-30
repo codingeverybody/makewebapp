@@ -4,7 +4,7 @@
      <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="http://localhost/style.css">
 </head>
-<body>
+<body id="target">
     <header>
         <h1><a href="http://localhost/">JavaScript</a></h1>
     </header>
@@ -15,5 +15,9 @@
         <li><a href="http://localhost/page_op.html">연산자</a></li>
         </ol>
     </nav>
+  <div id="control">
+    <input type="button" value="white" onclick="document.getElementById('target').className='white'" />
+    <input type="button" value="black" onclick="document.getElementById('target').className='black'"  />
+  </div>
 </body>
 </html>

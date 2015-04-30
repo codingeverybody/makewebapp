@@ -1,3 +1,11 @@
+body.black {
+  background-color:black;
+  color:white;
+}
+body.white {
+  background-color:white;
+  color:black;
+}
 header{
   border-bottom:1px solid gray;
   padding:20px;
@@ -15,6 +23,6 @@ article{
   float:left;
   padding:20px;
 }
-h2{
-  font-size:50px;
+#control {
+  float:right;
 }
