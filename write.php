@@ -21,7 +21,7 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
       echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
     }
     ?>
-        </ ol>
+        </ol>
     </nav>
   <div id="control">
     <input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
