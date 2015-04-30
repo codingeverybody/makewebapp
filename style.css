@@ -1,11 +1,12 @@
-body.black {
-  background-color:black;
-  color:white;
-}
-body.white {
+body.white{
   background-color:white;
   color:black;
 }
+body.black{
+  background-color:black;
+  color:white;
+}
+
 header{
   border-bottom:1px solid gray;
   padding:20px;
@@ -18,11 +19,17 @@ nav {
 }
 nav ol{
   list-style:none;
+  padding:0;
 }
 article{
   float:left;
   padding:20px;
+  width:500px;
 }
-#control {
+#control{
   float:right;
+}
+header img{
+  float:right;
+  height:100px;
 }
