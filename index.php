@@ -10,19 +10,19 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
   <link rel="stylesheet" type="text/css" href="http://localhost/style.css">
 </head>
 <body id="target">
-    <header>
+	<header>
     <img src="https://s3-ap-northeast-1.amazonaws.com/opentutorialsfile/course/94.png" alt="생활코딩">
-        <h1><a href="http://localhost/index.php">JavaScript</a></h1>
+		<h1><a href="http://localhost/index.php">JavaScript</a></h1>
   </header>
-    <nav>
-        <ol>
+	<nav>
+		<ol>
     <?php
     while( $row = mysqli_fetch_assoc($result)){
-      echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
+      echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a></li>'."\n";
     }
     ?>
-        </ol>
-    </nav>
+		</ ol>
+	</nav>
   <div id="control">
     <input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
     <input type="button" value="black" onclick="document.getElementById('target').className='black'" />
@@ -34,9 +34,9 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
       $sql = "SELECT topic.id,title,name,description FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id=".$_GET['id'];
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result);
-      echo '<h2>'.$row['title'].'</h2>';
-      echo '<p>'.$row['name'].'</p>';
-      echo $row['description'];
+      echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
+      echo '<p>'.htmlspecialchars($row['name']).'</p>';
+      echo strip_tags($row['description'], '<a><h1><h2><h3><h4><h5><ul><ol><li>');
   }
   ?>
   </article>
