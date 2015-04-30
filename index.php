@@ -1,6 +1,7 @@
 <?php
-$conn = mysqli_connect("localhost", "root", 111111);
-mysqli_select_db($conn, "opentutorials");
+require("config/config.php");
+require("lib/db.php");
+$conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
 $result = mysqli_query($conn, "SELECT * FROM topic");
 ?>
 <!DOCTYPE html>
@@ -10,19 +11,19 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
   <link rel="stylesheet" type="text/css" href="http://localhost/style.css">
 </head>
 <body id="target">
-	<header>
+    <header>
     <img src="https://s3-ap-northeast-1.amazonaws.com/opentutorialsfile/course/94.png" alt="생활코딩">
-		<h1><a href="http://localhost/index.php">JavaScript</a></h1>
+        <h1><a href="http://localhost/index.php">JavaScript</a></h1>
   </header>
-	<nav>
-		<ol>
+    <nav>
+        <ol>
     <?php
     while( $row = mysqli_fetch_assoc($result)){
       echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a></li>'."\n";
     }
     ?>
-		</ ol>
-	</nav>
+        </ ol>
+    </nav>
   <div id="control">
     <input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
     <input type="button" value="black" onclick="document.getElementById('target').className='black'" />

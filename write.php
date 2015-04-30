@@ -1,6 +1,7 @@
 <?php
-$conn = mysqli_connect("localhost", "root", 111111);
-mysqli_select_db($conn, "opentutorials");
+require("config/config.php");
+require("lib/db.php");
+$conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
 $result = mysqli_query($conn, "SELECT * FROM topic");
 ?>
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
       echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
     }
     ?>
-        </ol>
+        </ ol>
     </nav>
   <div id="control">
     <input type="button" value="white" onclick="document.getElementById('target').className='white'"/>
