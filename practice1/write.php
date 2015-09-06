@@ -25,22 +25,23 @@ while($row = mysqli_fetch_assoc($result)){
         </nav>
         <div id="content">
             <article>
-    <?php
-    if(empty($_GET['id'])){
-        echo "Welcome";
-    } else {
-        $id = mysqli_real_escape_string($conn, $_GET['id']);
-        $sql = "SELECT topic.id, topic.title, topic.description, user.name, topic.created FROM topic LEFT JOIN user ON topic.author = user.id WHERE topic.id=".$id;
-        $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-    ?>
-        <h2><?=htmlspecialchars($row['title'])?></h2>
-        <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
-        <div><?=htmlspecialchars($row['description'])?></div>
-    <?php
-    }
-    ?>
-
+                <form class="" action="process.php" method="post">
+                    <p>
+                        <label for="title">제목 :</label>
+                        <input id="title" type="text" name="title">
+                    </p>
+                    <p>
+                        <label for="authro">저자 : </label>
+                        <input id="author" type="text" name="author" value="">
+                    </p>
+                    <p>
+                        <label for="description">본문 :</label>
+                        <textarea id="description" name="description" rows="8" cols="40"></textarea>
+                    </p>
+                    <p>
+                        <input type="submit"  value="전송">
+                    </p>
+                </form>
             </article>
             <input type="button" name="name" value="White" onclick="document.getElementById('body').className=''">
             <input type="button" name="name" value="Black" onclick="document.getElementById('body').className='black'">
