@@ -1,6 +1,5 @@
 <?php
 require_once('conn.php');
-?>
 // 저자가 user 테이블에 존재하는지 여부를 체크
 $author = mysqli_real_escape_string($conn, $_POST['author']);
 $sql = "SELECT * FROM `user` WHERE `name` = '{$author}'";
