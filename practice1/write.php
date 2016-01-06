@@ -31,7 +31,7 @@ while($row = mysqli_fetch_assoc($result)){
                         <input id="title" type="text" name="title">
                     </p>
                     <p>
-                        <label for="authro">저자 : </label>
+                        <label for="author">저자 : </label>
                         <input id="author" type="text" name="author" value="">
                     </p>
                     <p>
