@@ -37,10 +37,21 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
         작성자 : <input type="text" name="author">
       </p>
       <p>
-        본문 : <textarea name="description"></textarea>
+        본문 : <textarea name="description" id="description"></textarea>
       </p>
+      <input type="hidden" role="uploadcare-uploader" />
       <input type="submit" name="name">
     </form>
   </article>
+  <script>
+    UPLOADCARE_PUBLIC_KEY = "56e94eff3f72731a45d5";
+  </script>
+  <script charset="utf-8" src="//ucarecdn.com/libs/widget/2.10.3/uploadcare.full.min.js"></script>
+  <script>
+    var singleWidget = uploadcare.SingleWidget('[role=uploadcare-uploader]');
+    singleWidget.onUploadComplete(function(info){
+      document.getElementById('description').value = document.getElementById('description').value + '<img src="'+info.cdnUrl+'">';
+    })
+  </script>
 </body>
 </html>
