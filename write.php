@@ -31,7 +31,7 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
             echo '<li><a href="http://localhost/index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a></li>'."\n";
           }
           ?>
-          </ ol>
+          </ol>
         </nav>
         <div class="col-md-9">
 
@@ -49,8 +49,8 @@ $result = mysqli_query($conn, "SELECT * FROM topic");
               </div>
 
               <div class="form-group">
-                <label for="form-author">본문</label>
-                <textarea class="form-control" rows="10" name="description"  id="form-author" placeholder="본문을 적어주세요."></textarea>
+                <label for="form-description">본문</label>
+                <textarea class="form-control" rows="10" name="description"  id="form-description" placeholder="본문을 적어주세요."></textarea>
               </div>
 
               <input type="submit" name="name" class="btn btn-default  btn-lg">
